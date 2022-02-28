@@ -1,3 +1,4 @@
+import { Bookmark } from './bookmark.model';
 import { BookmarksService } from './bookmarks.service';
 import { Controller, Get } from '@nestjs/common';
 
@@ -6,7 +7,7 @@ export class BookmarksController {
   constructor(private bookmarksService: BookmarksService) {}
 
   @Get()
-  findAll() {
+  findAll(): Bookmark[] {
     return this.bookmarksService.findAll();
   }
 }
