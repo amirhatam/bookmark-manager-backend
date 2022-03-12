@@ -43,4 +43,12 @@ export class BookmarksService {
 
     return bookmark;
   }
+
+  deleteBookmark(id: string): Bookmark[] {
+    const bookmarkDeleted = this.bookmarks.filter(
+      (bookmark) => bookmark.id == id,
+    );
+    this.bookmarks = this.bookmarks.filter((bookmark) => bookmark.id !== id);
+    return bookmarkDeleted;
+  }
 }
