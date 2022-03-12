@@ -2,6 +2,7 @@ import { Bookmark } from './bookmark.model';
 import { BookmarksService } from './bookmarks.service';
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { url } from 'inspector';
+import { CreatBookmarkDto } from './dto/create-bookmark.dto';
 
 @Controller('bookmarks')
 export class BookmarksController {
@@ -13,7 +14,7 @@ export class BookmarksController {
   }
 
   @Post()
-  creatBookmark(@Body('url') url, @Body('description') description): Bookmark {
-    return this.bookmarksService.createBookmark(url, description);
+  creatBookmark(@Body() creatBookmarkDto: CreatBookmarkDto): Bookmark {
+    return this.bookmarksService.createBookmark(creatBookmarkDto);
   }
 }
